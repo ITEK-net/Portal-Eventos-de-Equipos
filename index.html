@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ITEK | Equipments</title>
+    
+    <!-- Metadatos de Color (Actualizado al azul oscuro de ITEK) -->
+    <meta name="theme-color" content="#3B4995">
+    
+    <!-- iOS Apple -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ITEK | Equipments">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/JCA-ITEK/Pruebas/refs/heads/main/ITEK.png">
+
+    <!-- Android / Chrome -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="https://raw.githubusercontent.com/JCA-ITEK/Pruebas/refs/heads/main/ITEK.png">
+    <link rel="icon" sizes="512x512" href="https://raw.githubusercontent.com/JCA-ITEK/Pruebas/refs/heads/main/ITEK.png">
+
+    <!-- Manifest para Android -->
+    <link rel="manifest" href='data:application/manifest+json,{"name":"ITEK-Equipments","short_name":"ITEK-Equipments","description":"ITEK - Equipments","start_url":".","display":"standalone","background_color":"#F8F9FA","theme_color":"#3B4995","icons":[{"src":"https://raw.githubusercontent.com/JCA-ITEK/Pruebas/refs/heads/main/ITEK.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},{"src":"https://raw.githubusercontent.com/JCA-ITEK/Pruebas/refs/heads/main/ITEK.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}]}'>
+
+    <style>
+        /* Quitamos márgenes y hacemos que el iFrame ocupe toda la pantalla */
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            height: 100%; 
+            overflow: hidden; 
+            background-color: #3B4995; /* Color azul de ITEK de fondo base */
+        }
+
+        /* Pantalla de Carga (Loader) */
+        #loader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Gradiente usando el Azul Oscuro y el Celeste de ITEK */
+            background: linear-gradient(135deg, #3B4995 0%, #23B5E8 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease;
+        }
+
+        /* Contenedor del logo con animación de parpadeo/latido */
+        .logo-container {
+            background-color: white;
+            padding: 25px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: parpadeo 1.5s infinite ease-in-out;
+        }
+
+        .logo-container img {
+            width: 250px;
+            display: block;
+        }
+
+        /* Animación Keyframes */
+        @keyframes parpadeo {
+            0% { opacity: 0.5; transform: scale(0.95); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 0.5; transform: scale(0.95); }
+        }
+
+        iframe { 
+            width: 100%; 
+            height: 100%; 
+            border: none; 
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Contenedor de la animación de carga -->
+    <div id="loader">
+        <div class="logo-container">
+            <img src="https://raw.githubusercontent.com/JCA-ITEK/Pruebas/refs/heads/main/ITEK.png" alt="Cargando ITEK...">
+        </div>
+    </div>
+
+    <!-- El script onload oculta el loader suavemente cuando la página termina de cargar -->
+    <iframe 
+        src="https://script.google.com/macros/s/AKfycbz8S3AOO2I4-v3AMbEd6iBhfyUPzjjiNs2He54M3UgBrj2yu1KtqJN7WqhQWe_akwZtRg/exec" 
+        allow="autoplay; fullscreen"
+        onload="document.getElementById('loader').style.opacity='0'; setTimeout(function(){ document.getElementById('loader').style.display='none'; }, 600);">
+    </iframe>
+
+</body>
+</html>
